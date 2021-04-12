@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <link rel="icon" type="image/png" href="img/自LOGO3.png">
+    <title>Game </title>
+    <link href="css/Oct30.css" rel="stylesheet" type="text/css">
+    <style>
+    </style>
+
+
+
+</head>
+<body>
+<div id="all-content">
+
+
+    <div id="startBox">
+        <button id="btn-start">
+            Play a Little Game</button>
+    </div>
+    
+
+    <div id="back" onclick="closeIntroContent()">
+        <!-- <button id="close-btn"><img id="close-img" src="img/X.png" /></button> -->
+
+        <div class="intro-content" id="intro-content-1">
+            <div class="intro-title" id="intro-title-1">WHAT'S THIS</div>
+            <div class="aboutme-info">
+                <!-- <img src="https://i.imgur.com/7hyWeZB.png" style="width: 20%;height: auto;top: 50%;" /> -->
+                <p>
+                    <font>這是什麼</font><br>
+                    這是資策會全端工程師就業養成班，第一堂課：html+css的練習作業。<br>
+                    主要練習靜態網頁排版及樣式。
+                </p>
+            </div>
+        </div>
+        <div class="intro-content" id="intro-content-2">
+            <div class="intro-title" id="intro-title-2">DRSIGNING PROCESS</div>
+            <div class="aboutme-info">
+                <!-- <img src="https://i.imgur.com/7hyWeZB.png" style="width: 20%;height: auto;top: 50%;" /> -->
+                <p>
+                    <font>發想</font><br>
+                   思及許多網站都具有可讓使用者更換版面顏色樣式的功能，我試著加入像接水果一樣的遊戲方式，藉由接到顏色方塊改變整體頁面的RGB比例，使每一位使用者玩出來的結果都不同。<br><br>
+                   <font>原始頁面主色參考圖</font><br>
+                   （創作日期2019/12/10）
+                   <img src="https://i.imgur.com/E1TqyLw.png">
+                   
+                </p>
+            </div>
+        </div>
+        <div class="intro-content" id="intro-content-3">
+            <div class="intro-title" id="intro-title-3">LEARNED & CHALLENGED</div>
+            <div class="aboutme-info">
+                <!-- <img src="https://i.imgur.com/7hyWeZB.png" style="width: 20%;height: auto;top: 50%;" /> -->
+                <p>
+                    <font>學習和挑戰</font><br>
+                    由於職訓還尚未學習到JavaScript與jQuery，原本非常不熟悉這兩者的使用，但為了做出想要呈現的效果，透過這次練習先嘗試了使用在網頁動態上。<br>
+                    
+                    <br>
+                </p>
+            </div>
+
+        </div>
+        <div class="intro-content" id="intro-content-4">
+            <div class="intro-title" id="intro-title-4">PORTFOLIO</div>
+            <div class="aboutme-info">
+                <p id="ppp">
+                    <font>作品集</font><br>
+                    <a href="index.html" style="font-weight: 900;color:#FFA218">PORTFOLIO</a>
+                </p>
+            </div>
+           
+               
+        </div>
+    </div>
+
+    <div id="tlb">
+        <div id="TimeLine"></div>
+    </div>
+
+    <div class="content">
+        <div id="myname">
+            <h1 class="ml16">
+                <span class="letter">CHANGE</span>
+            </h1>
+            <h1 class="ml16">
+                <span class="letter">COLOR :) </span>
+            </h1>
+        </div>
+    </div>
+
+
+    <h1 class="ml15 rg">
+        <span id="ready" class="w">Ready?</span>
+    </h1>
+    <h1 class="ml15 rg">
+        <span id="go" class="w">Go!</span>
+    </h1>
+    <h1 class="ml15 rg">
+        <span id="timeup" class="w">Time's Up</span>
+    </h1>
+
+    <div id="goto-intro">
+        <button id="goto-intro-btn">SKIP</button>
+    </div>
+    <button id="retry">RETRY</button>
+    <button id="skip">skip</button>
+
+
+    <div id="M">
+        <a href="game.html"><img id="akylogo" src="https://i.imgur.com/EWRDP2Y.png" /></a>
+        <p style="color: #FFF;position: absolute;margin: 0;font-size: 0.5em;
+        width: 15%;
+        height: auto;
+        left: 3.5%;
+        top: 1.5%;
+        z-index: 3;">CHING-YA'S PORTFOLIO</p>
+        <div id="menutitle" class="mcb"></div>
+        <!-- <div id="btn-leftmenu"> -->
+        <button id="btn-box1" class="box1 mcb-btn">WHAT'S THIS</button>
+        <button id="btn-box2" class="box2 mcb-btn">DRSIGNING PROCESS</button>
+        <button id="btn-box3" class="box3 mcb-btn">LEARNED & CHALLENGED</button>
+        <button id="btn-box4" class="box4 mcb-btn">PORTFOLIO</button>
+        <!-- </div> -->
+        <div class="menuContentBox mcb box1">Hi</div>
+        <div class="menuContentBox mcb box2">There</div>
+        <div class="menuContentBox mcb box3">I'm</div>
+        <div class="menuContentBox mcb box4">Aky</div>
+    </div>
+
+    <div id="plate">
+        <div class="div" id="div1"></div>
+        <div class="div"></div>
+        <div class="div"></div>
+        <div class="div"></div>
+        <div class="div"></div>
+        <div class="div"></div>
+        <div class="div"></div>
+        <div class="div"></div>
+        <div class="div"></div>
+        <div class="div"></div>
+        <div class="div"></div>
+    </div>
+
+    <div id="box1" class="rgb-box red r-5"></div>
+    <div id="box2" class="rgb-box red r-10"></div>
+    <div id="box3" class="rgb-box red r-10"></div>
+    <div id="box4" class="rgb-box red r-5"></div>
+    <div id="box5" class="rgb-box white r-5"></div>
+    <div id="box6" class="rgb-box green g5"></div>
+    <div id="box7" class="rgb-box green g10"></div>
+    <div id="box8" class="rgb-box green g-10"></div>
+    <div id="box9" class="rgb-box green g-20"></div>
+    <div id="box10" class="rgb-box black g20"></div>
+    <div id="box11" class="rgb-box blue b5"></div>
+    <div id="box12" class="rgb-box blue b10"></div>
+    <div id="box13" class="rgb-box blue b10"></div>
+    <div id="box14" class="rgb-box blue b5"></div>
+    <div id="box15" class="rgb-box gray b5">？</div>
+
+
+</div>
+<p id="copyright">Copyright © 2020 Ching-Ya Lo All Rights reserved</p>
+
+
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script type="text/javascript" src="js/oct30.js"></script>
+<!-- <script  type="text/javascript" src="js/box.js"></script> -->
+<script type="text/javascript" src="js/try.js"></script>
+
+
+</body>
+
+</html>

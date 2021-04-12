@@ -1,0 +1,620 @@
+@font-face {
+  font-family:'Nagurigaki Crayon',
+  src: 
+      url('fonts/crayon_1-1.woff') format("woff"),
+      url('font/crayon_1-1.ttf') format("truetype"),
+      url('font/crayon_1-1.ttf') format("opentype"),
+      /* url('../fonts/Helvetica.eot') format("embedded-opentype"); */
+ }
+ @font-face {
+     font-family:'Hanyi Senty Chalk Original',
+     src: 
+          url('fonts/HanyiSentyChalk 2018.woff') format("woff"),
+          url('font/HanyiSentyChalk 2018.ttf') format("truetype"),
+          url('font/HanyiSentyChalk 2018.ttf') format("opentype"),
+          /* url('../fonts/Helvetica.eot') format("embedded-opentype"); */
+ }
+ 
+ *:not(.content){
+   font-family:'Lucida Sans Unicode','Noto Sans TC',"微軟正黑體", Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+ }
+ 
+ body{
+   /* background-color:#FFA218; */
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   top:0;
+   left:0;
+ }
+ 
+ #all-content{
+   position: absolute;
+   width: 96%;
+   height: 92%;
+   top:4%;
+   left: 2%;
+   overflow: hidden;
+   border-radius: 20px;
+   background-color: rgb(255,162,23);
+ }
+ 
+ .div:not(:first-child){
+   width: 1%;
+   height: 10px;
+   background: rgba(255, 255, 255,0.5);
+   position: absolute;
+   bottom: 0;
+   margin-left: 0;
+   /*border-radius: 10px;*/
+   z-index: 4;
+ }
+ 
+ #div1{
+   margin-top: 0;
+   width: 180px;
+   height: 30px;
+   background-color: rgb(255,162,23);
+   position: absolute;
+   bottom: 0;
+   left: 0px;
+   top:auto;
+   /*border-radius: 10px;*/
+   z-index: 5;
+ }
+ 
+ #plate{
+   width:100%;
+   height: 100%;
+   overflow: hidden;
+   bottom:0;
+   left: 0; 
+   display: none;
+ }
+ 
+ #TimeLine{
+   width: 100%;
+   height: 5px;
+   position: absolute;
+   /*;border-radius: 20px*/
+   margin-left: 0;
+   margin-top: 0;
+     /* background: -webkit-linear-gradient(#d4bb5e,#efe59f);
+     background: -o-linear-gradient(#d4bb5e,#efe59f);
+     background: -moz-linear-gradient(#d4bb5e,#efe59f);
+     background: linear-gradient(#d4bb5e,#efe59f); */
+     /* border:2px red solid */
+   background-color: rgb(222,80,4);
+ }
+ 
+ #tlb{
+   top:5%;
+   width: 50%;
+   height: 5px;
+   position: absolute;
+   /*border:1px #666 outset;border-radius: 20px;*/
+   display: none;
+   background-color: rgb(236,215,168);
+   z-index: 4;
+   left: 50%;
+   transform: translateX(-50%);
+ }
+ 
+ .content{
+   position: absolute;
+   width: 85%;
+   height: 90%;
+   right: 0;
+   top: 0;
+   background-color:rgb(53,62,101);
+   /* background: url(https://i.imgur.com/zFZdN2Z.png); */
+   background-size: contain;
+   z-index: 3;
+ }
+ 
+ #myname{
+     position: absolute;
+     height: 100%;
+     /* right:0 ; */
+     right: 10%;
+     top:10%;
+     margin-right: 0;
+     /* z-index: 1; */
+     /* overflow: hidden; */
+ }
+ 
+   .ml16 {
+     overflow: hidden;
+     /* color: #FFA218; */
+     /* color:rgba(0,0,0,0); */
+     /* padding: 20px 0; */
+     /* text-transform: uppercase; */
+     /* text-shadow:1px 1px 1px #9689A8; */
+   }
+   
+   .letter {
+     font-family: 'Nagurigaki Crayon'!important;
+     right:0;
+     -webkit-text-stroke:2px rgb(222,80,4);
+     font-weight: bold;
+     font-size: 3.5em;
+     filter: drop-shadow(2px 2px 0px rgb(236,215,168));
+     letter-spacing: 0.2em;
+     display: inline-block;
+     color:rgb(255,162,23);
+   /* line-height: 1em; */
+   /* color: transparent; */
+   /* background: url(https://i.imgur.com/zFZdN2Z.png) no-repeat center center; */
+   /* background-size: cover; */
+   /* -webkit-background-clip: text; */
+   }
+ 
+   .rg{
+     position: absolute;
+     /* overflow: hidden; */
+     width: 100%;
+     height: 20%;
+     /* margin: auto; */
+     top: 20%;
+     z-index: 4;
+   }
+ 
+   .ml15 {
+     text-align: center;
+     position: absolute;
+     font-weight: bold;
+     /* text-transform: uppercase; */
+     letter-spacing: 0.2em;
+     width: 100%;
+     /* top:0 ;
+     left: 0; */
+   }
+ 
+   /* .ml15 .word {
+     font-size: 3.5em;
+     display: inline-block;
+     line-height: 1em;
+     position: absolute;
+     margin-top: 0;
+     margin-left: 0;
+   } */
+ 
+   .ml15 .w {
+     /* left: 50%;
+     transform: translateX(-50%); */
+     display: none;
+     line-height: 1em;
+     font-size: 2em;
+     /* margin: auto; */
+     color: rgb(236,215,168);
+     font-family: 'Nagurigaki Crayon'!important;
+   }
+ 
+   #btn-start{
+     position: absolute;
+     width:100%;
+     height: 100%;
+     display: block;
+     cursor: pointer;
+     border: none;
+     outline: none;
+     background-color: rgba(0,0,0,0);
+     color:rgb(255,162,23);
+     left: 50%;
+     transform: translateX(-50%);
+     font-size: 180%;
+     font-family: 'Nagurigaki Crayon'!important;
+     /* letter-spacing: 0.5em; */
+ }
+ #btn-start:hover{
+   color:rgb(236,215,168);
+ }
+ 
+ #startBox{
+     position: absolute;
+     right: 0px;
+     height: 10%;
+     width: 85%;
+     bottom: 0;
+     margin-bottom: 0;
+     background-color: rgb(222,80,4);
+     opacity: 1;
+     z-index: 4;
+ }
+ 
+ #M{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+ }
+ 
+ .menuContentBox{
+     /* height: 5%; */
+     position: -webkit-sticky;
+     position: sticky;
+     margin-top:3%;
+     margin-left: -3%;
+     width: 20%;
+     background-color:rgb(53,62,101) ;
+     z-index: 2;
+ }
+ 
+ .box1{
+   /* margin-top:17%; */
+   line-height: 2em;
+ }
+ /* 
+ #btn-box1{
+   margin-top:19%;
+   line-height: 2em;
+ } */
+ 
+ .box2{
+   line-height: 3em;
+ }
+ 
+ .box3{
+   line-height: 4em;
+ }
+ 
+ .box4{
+   line-height: 5em;
+ }
+ 
+ .mcb{
+   text-align: center;
+   transform: rotate(20deg);
+   color: rgb(53,62,101);
+   font-size: .8em;
+   font-weight: 400;
+ }
+ 
+ #menutitle{
+   position: -webkit-sticky;
+   position: sticky;
+   height: 35%;
+   margin-top:-10%;
+   margin-left: -15%;
+   width: 50%;
+   background-color:rgb(53,62,101) ;
+   z-index: 1;
+ }
+ 
+ #akylogo{
+   position: absolute;
+   margin: 0;
+   width: 3%;
+   height: auto;
+   left: 0;
+   top: 0;
+   z-index: 3;
+ }
+ 
+ /* p{
+   z-index: 3;
+   color:#FFF;
+ } */
+ /* #btn-leftmenu{
+   display: none;
+ } */
+ 
+ .mcb-btn{
+   /* height: 5%; */
+   position: -webkit-sticky;
+   position: sticky;
+   margin-top:3%;
+   margin-left: -3%;
+   width: 30%;
+   background-color:rgb(53,62,101) ;
+   display: none;
+   text-align: center;
+   transform: rotate(20deg);
+   color: rgb(255,162,23);
+   font-size: 50%;
+   font-weight: 400;
+   z-index: 2;
+   cursor: pointer;
+   border: none;
+   outline: none;
+   opacity: 0;
+ }
+ .mcb-btn:hover{
+  color:rgb(236,215,168);
+  background-color:rgb(98,108,37);
+}
+
+ #skip{
+   display: none;
+ }
+ 
+ #skip{
+   position: absolute;
+   right: 0;
+   color: rgb(236,215,168);
+   background-color:rgb(98,108,37);
+   z-index: 4;
+   cursor: pointer;
+   border: none;
+   outline: none;
+ }
+ 
+ #goto-intro{
+   position: absolute;
+   left:0px;
+   height: 10%;
+   width: 15%;
+   bottom: 0;
+   margin-bottom: 0;
+   background-color: rgb(98,108,37);
+   z-index: 4;
+ }
+ #goto-intro-btn{
+   display: block;
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   top:0;
+   left: 0;
+   background-color: rgba(0,0,0,0);
+   color: rgb(236,215,168);
+   font-size:180%;
+   font-family: 'Nagurigaki Crayon'!important;
+   /* letter-spacing: 0.2em; */
+   cursor: pointer;
+   border: none;
+   outline: none;
+ }
+ 
+ 
+ #back{
+   position: relative;
+   width:100%;
+   height:100%;
+   background-color:rgba(255,255,255,0.7);
+   /* opacity: 0.9; */
+   z-index:5;
+   display:none;
+   }
+   
+   #close-btn{
+     position: absolute;
+     width: 10%;
+     height: 20%;
+     right:10px;
+     top:10px;
+     /* z-index: 6; */
+     display: none;
+     cursor: pointer;
+     border: none;
+     outline: none;
+     background-color: rgba(0,0,0,0);
+   }
+   #close-img{
+     opacity: 0.8;
+     position: absolute;
+     width: 100%;
+     height: auto;
+     left:0px;
+     top:0px;
+     /* z-index: 6; */
+   }
+   #close-btn:hover #close-img{
+     opacity: 1;
+   }
+   
+ .intro-content {
+   position: relative;
+   width:60%;
+   
+   margin: auto;
+
+   /* left:50%;
+   transform: translateX(-50%); */
+   background-color:rgba(0,0,0,0.9);
+   opacity: 0.9;
+   /* z-index:6; */
+   overflow: scroll;
+   overflow-x:hidden;
+   border-radius: 20px;
+   text-align: center;
+   display:none;
+   font-family: 'Lucida Sans Unicode'!important;
+   }
+  #intro-content-1{
+    height:50%;
+    top:25%;
+  }
+  #intro-content-2{
+    height:80%;
+    top:10%;
+  }
+  #intro-content-3{
+    height:70%;
+    top:15%;
+  }
+  #intro-content-4{
+    height:40%;
+    top:30%;
+  }
+
+   ::-webkit-scrollbar {
+     width: 10px;
+ } /* this targets the default scrollbar (compulsory) */
+ ::-webkit-scrollbar-track {
+   background-color: rgba(0,0,0,0);
+ } /* the new scrollbar will have a flat appearance with the set background color */
+ 
+ ::-webkit-scrollbar-thumb {
+   background-color: rgb(255,255,255); 
+   border-radius: 20px 20px 20px 20px;
+   height: 5px;
+   /* right: 2px; */
+ } /* this will style the thumb, ignoring the track */
+ 
+ ::-webkit-scrollbar-button {
+   /* border-radius: 0px 20px 20px 0; */
+   background-color: rgba(0,0,0,0);
+ } /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+ 
+ ::-webkit-scrollbar-corner {
+   /* border-radius: 0px 20px 20px 0; */
+   /* background-color: rgba(0,0,0,0); */
+ } /* if both the vertical and the horizontal bars appear, then perhaps the right bottom corner also needs to be styled */
+ 
+   .aboutme-info{
+   font-family: 'Lucida Sans Unicode'!important;
+  /* position: absolute; */
+  margin: auto;
+  /* margin-top:10px;  */
+  margin-bottom: 20px;
+  width: 80%;
+  /* left: 50%; */
+   /* transform: translateX(-50%); */
+   background-color: rgba(0,0,0,0);
+   color:rgb(236,215,168);
+ }
+ .aboutme-info p{
+   font-family: 'Lucida Sans Unicode'!important;
+     position: relative;
+     font-size: 1rem;
+     /* font-weight: bold; */
+     text-align: left;
+     top:100%;
+     width: 100%;
+     height: auto;
+   }
+   p font{
+     font-family: 'Lucida Sans Unicode'!important;
+     font-weight: 900;
+     color: rgb(255,162,23);
+   }
+   p img{
+     width: 100%;
+     height: auto;
+   }
+  /* .img1{
+     position: relative;
+    
+     width: 49%;
+     height: auto;
+     
+     float: left;
+     opacity: 0.5;
+     margin-left:1% ;
+   }
+ .img2{
+    position: relative;
+    float: left;
+ 
+    width: auto;
+    height: 100%;
+   
+    opacity: 0.5;
+    margin-left:5% ;
+  }
+  .img1:hover,.img2:hover{
+    opacity: 0.8;
+  }
+ #img-m{
+   color:#FFF;
+   top:80px;
+   position: relative;
+   width: 80%;
+   height: 70%;
+   margin: auto;
+   text-align: center;
+ }
+ #img-p{
+  color:#FFF;
+  top:100px;
+  position: relative;
+  width: 80%;
+  height: auto;
+  margin: auto;
+  text-align: center;
+}*/
+#ppp{
+  width: 100%;
+  text-align: center;
+} 
+
+
+   .intro-title{
+     font-family: 'Lucida Sans Unicode'!important;
+     position: relative;
+     /* -webkit-text-stroke:0.5px #FFF; */
+     /* filter: drop-shadow(2px 2px 0px rgb(255,162,23)); */
+     color: transparent;
+     background: url(https://i.imgur.com/E1TqyLw.png) no-repeat center center;
+     background-size: cover;
+     -webkit-background-clip: text;
+     font-weight: 900;
+     font-size: 6em;
+     /* text-align: center; */
+   }
+ 
+   
+   
+   #copyright{
+     position: absolute;
+     /* width: 100%; */
+     bottom:0%;
+     left: 50%;
+     transform: translateX(-50%);
+     margin-bottom: 0;
+     font-size: xx-small;
+     z-index:7 ;
+   }
+
+   .rgb-box{
+     position: absolute;
+     font-family: 'Nagurigaki Crayon'!important;
+     width: 30px;
+     height: 25px;
+     z-index: 7;
+     color: #FFF;
+     text-align: center;
+     border-radius: 3px;
+     margin-bottom: 0;
+     float: left;
+     /* display: none; */
+   }
+   .red{
+     background-color: red;
+   }
+   .green{
+     background-color: green;
+   }
+   .blue{
+     background-color: blue;
+   }
+   .black{
+    background-color: black;
+  }
+  .white{
+    background-color: white;
+  }
+  .gray{
+    background-color: gray;
+  }
+   #box1, #box2, #box3, #box4, #box5, #box6, #box7, #box8, #box9, #box10, #box11, #box12, #box13, #box14, #box15{
+    top:-100px;
+   }
+   #retry{
+    display:none;
+    /* font-family: 'Nagurigaki Crayon'!important; */
+    position: absolute;
+    left:-20%;
+    height: 10%;
+    width: 20%;
+    bottom: 0;
+    margin-bottom: 0;
+    color: rgb(236,215,168);
+    background-color:rgb(0,0,0);
+    z-index: 4;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
