@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app {
+      padding: 0;
+      margin: auto;
+      width: 350px;
+    }
+
+    #main-box {
+      margin-top: 30px;
+      /* width: 350px; */
+      max-height: 500px;
+      border: solid 1px royalblue;
+      border-radius: 10px;
+      background: aliceblue;
+      padding: 10px;
+      line-height: 25px;
+      font-family: 'Noto Sans TC', '微軟正黑體', Helvetica Neue, sans-serif;
+      color: gray;
+      overflow: auto;
+      cursor: pointer;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .box {
+      /* width: 350px; */
+      padding: 10px;
+      margin-top: 10px;
+      background: rgb(245, 242, 223);
+      border-radius: 10px;
+    }
+
+    .box span {
+      font-size: 12px;
+    }
+
+    .box h4 {
+      line-height: 30px;
+      margin: 0;
+      color: rgb(225, 188, 65);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="box">
+      <h4>person</h4>
+      <input id="personInput" type="text"></input>
+      <button onclick="createNewPerson()">+</button>
+      <br>
+      <span id="person-list"></span>
+    </div>
+    <div class="box">
+      <h4>place</h4>
+      <input id="placeInput" type="text"></input>
+      <button onclick="createNewPlace()">+</button>
+      <br>
+      <span id="place-list"></span>
+    </div>
+    <div class="box">
+      <h4>action</h4>
+      <input id="actionInput" type="text"></input>
+      <button onclick="createNewAction()">+</button>
+      <br>
+      <span id="action-list"></span>
+    </div>
+    <div id="main-box" onclick="makeSentence()">click</div>
+  </div>
+
+  <script>
+    function getRandomItem(list) {
+      let index = Math.floor(Math.random() * list.length);
+      return list[index];
+    }
+    function getRandom(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    let rowIndex = 0;
+    function makeSentence() {
+      let mainBox = document.getElementById("main-box");
+      if (rowIndex === 0) {
+        mainBox.innerText = '';
+      }
+      let sentence = '';
+      let personCount = getRandom(1, 3);
+      let person1 = getRandomItem(whoList)
+      sentence += person1;
+      if (personCount > 1) {
+        let hasWho = [person1]
+        for (let i = 0; i < personCount - 1; i++) {
+          let newWhoList = whoList.filter(t => hasWho.indexOf(t) === -1);
+          let person = getRandomItem(newWhoList);
+          hasWho.push(person)
+          sentence += '和' + person
+        }
+      }
+      sentence += '在' + getRandomItem(whereList)
+      let actionCount = getRandom(1, 2);
+      if (actionCount > 1) {
+        let action1 = getRandomItem(actionList);
+        let newActionList = actionList.filter(t => t !== action1);
+        sentence += `邊${action1}邊${getRandomItem(newActionList)}`
+      } else {
+        sentence += getRandomItem(actionList);
+      }
+      let newRow = document.createElement('span');
+      newRow.innerHTML = sentence + '<br>';
+      mainBox.appendChild(newRow);
+    }
+
+    function createNewPerson() {
+      let personInput = document.getElementById('personInput');
+      let newPerson = personInput.value;
+      personInput.value = '';
+      whoList.push(newPerson);
+      createLists();
+    }
+    function createNewPlace() {
+      let placeInput = document.getElementById('placeInput');
+      let newPlace = placeInput.value;
+      placeInput.value = '';
+      whereList.push(newPlace);
+      createLists();
+    }
+    function createNewAction() {
+      let actionInput = document.getElementById('actionInput');
+      let newAction = actionInput.value;
+      actionInput.value = '';
+      actionList.push(newAction);
+      createLists();
+    }
+
+    let whoList = ['KAITO', '神代類', 'P助', '工讀生'];
+    let whereList = ['草叢裡', '天堂', '地獄', '國際太空站', '空無一人的世界裡', '天馬家'];
+    let actionList = ['寫程式', '學習JS', '開直播', 'PK', '跳PPAP', '打麻將', '舞龍舞獅'];
+    function createLists() {
+      let plist = document.getElementById('person-list');
+      plist.innerText = whoList.join(', ');
+      let placeList = document.getElementById('place-list');
+      placeList.innerText = whereList.join(', ');
+      let aList = document.getElementById('action-list');
+      aList.innerText = actionList.join(', ');
+    }
+    createLists();
+  </script>
+</body>
+
+</html>
