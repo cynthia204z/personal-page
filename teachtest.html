@@ -150,6 +150,8 @@
           let action1 = getRandomItem(lists.actionList);
           let newActionList = lists.actionList.filter(t => t !== action1);
           sentence += `邊${action1}邊${getRandomItem(newActionList)}`
+        }else{
+          sentence += getRandomItem(lists.actionList);  
         }
       } else {
         sentence += getRandomItem(lists.actionList);
