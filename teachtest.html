@@ -86,6 +86,7 @@
   <div id="app">
     <div class="box">
       <h4>Person</h4>
+      <div style="color:gray;font-size:12px;">人數限制：<input id="personNum" type="number" min="0" style="width: 20px"></input> 人</div><br>
       <input id="personInput" type="text"></input>
       <button onclick="createNewItem('person')">+</button>
       <button onclick="clearList('who')">Clear All</button>
@@ -131,7 +132,11 @@
         mainBox.innerText = '';
       }
       let sentence = '';
-      let personCount = getRandom(1, lists.whoList.length);
+      let personNum = document.getElementById('personNum').value;
+      if(!personNum || personNum > lists.whoList.length){
+        personNum = lists.whoList.length
+      }
+      let personCount = getRandom(1, personNum);
       let person1 = getRandomItem(lists.whoList)
       sentence += person1;
       if (personCount > 1) {
