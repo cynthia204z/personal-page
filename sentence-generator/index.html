@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link type="text/css" rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="top-tool">
+      <button id="top-btn-1" class="top-btn" onclick="changeCurrentMod('1')">誰在哪裡做什麼</button>
+      <button id="top-btn-2" class="top-btn" onclick="changeCurrentMod('2')">誰被誰做什麼</button>
+      <button id="top-btn-3" class="top-btn" onclick="changeCurrentMod('3')">CP</button>
+      <button id="top-btn-self" class="top-btn" onclick="changeCurrentMod('self')">自訂抽籤</button>
+    </div>
+    <div id="mod1" class="mod-box">
+      <div class="box">
+        <div class="title-box">
+          <h4>Person</h4>
+          <button onclick="clearList('person')" class="clear-btn">Clear All</button>
+        </div>
+        <div class="person-limit">人數限制：<input id="personNum" type="number" min="0"></input> 人</div>
+        <br>
+        <input id="personInput" type="text"></input>
+        <button onclick="createNewItem('person')" class="add-btn">+</button>
+        <br>
+        <div id="person-list" class="item-box"></div>
+      </div>
+      <div class="box">
+        <div class="title-box">
+          <h4>Place</h4>
+          <button onclick="clearList('place')" class="clear-btn">Clear All</button>
+        </div>
+        <input id="placeInput" type="text"></input>
+        <button onclick="createNewItem('place')" class="add-btn">+</button>
+        <br>
+        <div id="place-list" class="item-box"></div>
+      </div>
+      <div class="box">
+        <div class="title-box">
+          <h4>Action</h4>
+          <button onclick="clearList('action')" class="clear-btn">Clear All</button>
+        </div>
+        <input id="actionInput" type="text"></input>
+        <button onclick="createNewItem('action')" class="add-btn">+</button>
+        <br>
+        <div id="action-list" class="item-box"></div>
+      </div>
+    </div>
+
+    <div id="mod2" class="mod-box"></div>
+    <div id="mod3" class="mod-box">
+
+    </div>
+    <div id="modself" class="mod-box"></div>
+
+    <div id="main-box" onclick="makeSentence()">Click 🤟</div>
+  </div>
+
+  <script type="text/javascript" src="./common.js"></script>
+  <script type="text/javascript" src="./modType/mod1.js"></script>
+  <script type="text/javascript" src="./modType/mod2.js"></script>
+  <script type="text/javascript" src="./modType/mod3.js"></script>
+  <script type="text/javascript" src="./modType/modself.js"></script>
+  <script type="text/javascript" src="./index.js"></script>
+  <script>
+    changeCurrentMod('1');
+    createLists();
+  </script>
+</body>
+
+</html>

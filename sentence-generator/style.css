@@ -1,0 +1,228 @@
+#app {
+    padding: 0;
+    margin: auto;
+    width: 350px;
+    height: 90%;
+    overflow: hidden;
+}
+
+#main-box {
+    margin: 10px auto;
+    max-height: 500px;
+    border: solid 1px rgb(167, 186, 243);
+    border-radius: 10px;
+    background: aliceblue;
+    padding: 10px;
+    line-height: 25px;
+    font-family: 'Noto Sans TC', '微軟正黑體', Helvetica Neue, sans-serif;
+    color: gray;
+    cursor: pointer;
+    text-align: center;
+    font-size: 12px;
+    transition: 0.5s;
+    position: relative;
+}
+
+#main-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, .7), transparent);
+    left: -100%;
+    transition: 0.5s;
+}
+#main-box:active::before {
+    transition: 0s;
+    left: 100%;
+}
+#main-box:hover {
+    background: rgb(229, 243, 255);
+}
+
+.box {
+    /* width: 350px; */
+    padding: 10px 15px;
+    margin-top: 10px;
+    background: rgb(245, 242, 223);
+    border-radius: 10px;
+}
+
+.box span {
+    font-size: 12px;
+}
+
+.box h4 {
+    line-height: 30px;
+    margin: 0;
+    color: rgb(225, 188, 65);
+}
+
+.item-box {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+.list-item {
+    position: relative;
+    font-size: 12px;
+    border-radius: 5px;
+    border: solid 1px rgb(255, 232, 157);
+    background: rgb(255, 252, 244);
+    padding: 3px 15px;
+    margin: 2px;
+    line-height: 15px;
+    color: rgb(121, 108, 98);
+    cursor: pointer;
+}
+
+.list-item:hover::after {
+    content: "ｘ";
+    font-family: sans-serif;
+    color: #fff;
+    background: rgb(0, 0, 0, .5);
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    line-height: 13px;
+    width: 13px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.title-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.person-limit {
+    color: gray;
+    font-size: 12px;
+}
+
+.person-limit input {
+    width: 30px;
+}
+
+.clear-btn {
+    font-size: 12px;
+    background: none;
+    color: gray;
+    border: none;
+    cursor: pointer;
+}
+
+.clear-btn:hover {
+    color: rgb(172, 172, 172);
+}
+
+input {
+    border-radius: 5px;
+    border: 1px solid rgb(185, 185, 185);
+}
+
+input:focus-visible {
+    border: 1px solid rgb(228, 179, 124);
+    outline: none;
+}
+
+.add-btn {
+    border-radius: 5px;
+    border: 1px solid transparent;
+    background: rgb(228, 179, 124);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: transform ease-in 0.1s, background-color ease-in 0.1s, box-shadow ease-in 0.25s;
+}
+
+.add-btn:hover {
+    background: rgb(228, 165, 71);
+}
+
+.add-btn::before {
+    position: absolute;
+    content: '';
+    left: -2em;
+    right: -2em;
+    top: -2em;
+    bottom: -2em;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-image:
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%),
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%),
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%),
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%),
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%),
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%),
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%),
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%),
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%),
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%),
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%),
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%),
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%),
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%),
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%),
+        radial-gradient(circle, rgb(228, 165, 71) 20%, transparent 20%);
+    background-position: 5% 44%, -5% 20%, 7% 5%, 23% 0%, 37% 0, 58% -2%, 80% 0%, 100% -2%, -5% 80%,
+        100% 55%, 2% 100%, 23% 100%, 42% 100%, 60% 95%, 70% 96%, 100% 100%;
+    background-size: 0% 0%;
+    transition: background-position .5s ease-in-out, background-size .75s ease-in-out;
+}
+
+.add-btn:active::before {
+    transition: 0s;
+    background-size: 10% 10%, 16% 16%, 13% 13%, 18% 18%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%,
+        13% 13%, 18% 18%, 16% 16%, 15% 15%, 13% 13%, 10% 10%, 18% 18%;
+    background-position: 35% 45%, 38% 38%, 42% 39%, 46% 37%, 54% 37%, 58% 37%, 64% 39%, 64% 44%, 36% 52%,
+        62% 52%, 35% 57%, 41% 62%, 46% 61%, 52% 63%, 59% 63%, 65% 58%;
+}
+
+.top-btn {
+    border-radius: 3px;
+    border: none;
+    background: rgb(172, 172, 172);
+    color: white;
+    margin: 2px;
+    cursor: pointer;
+    position: relative;
+    line-height: 20px;
+}
+
+.current-top-btn::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    margin: auto;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: rgb(201, 165, 131) transparent transparent transparent;
+    border-width: 5px 6px 0 6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mod-box {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.mod-box,
+.top-btn,
+.add-btn,
+.clear-btn {
+    transition: all ease .3s;
+}
+
+.top-tool {
+    width: 100%;
+}
