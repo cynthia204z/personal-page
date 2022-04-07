@@ -11,13 +11,15 @@
       padding: 0;
       margin: auto;
       width: 350px;
+      height: 90%;
+      overflow: hidden;
     }
 
     #main-box {
       margin-top: 30px;
       /* width: 350px; */
       max-height: 500px;
-      border: solid 1px royalblue;
+      border: solid 1px rgb(167, 186, 243);
       border-radius: 10px;
       background: aliceblue;
       padding: 10px;
@@ -62,13 +64,14 @@
       background: rgb(255, 252, 244);
       padding: 3px 15px;
       margin: 2px;
-      cursor: pointer;
       line-height: 15px;
+      color: rgb(121, 108, 98);
+      cursor: pointer;
     }
 
     .list-item:hover:after {
-      font-family: sans-serif;
       content: "ｘ";
+      font-family: sans-serif;
       color: #fff;
       background: rgb(0, 0, 0, .5);
       position: absolute;
@@ -79,37 +82,142 @@
       text-align: center;
       border-radius: 50%;
     }
+
+    .title-box {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .person-limit {
+      color: gray;
+      font-size: 12px;
+    }
+
+    .person-limit input {
+      width: 30px;
+    }
+
+    .clear-btn {
+      font-size: 12px;
+      background: none;
+      color: gray;
+      border: none;
+      cursor: pointer;
+    }
+
+    .clear-btn:hover {
+      color: rgb(172, 172, 172);
+    }
+
+    input {
+      border-radius: 5px;
+      border: 1px solid rgb(185, 185, 185);
+    }
+
+    input:focus-visible {
+      border: 1px solid rgb(228, 179, 124);
+      outline: none;
+    }
+
+    .add-btn {
+      border-radius: 5px;
+      border: 1px solid transparent;
+      background: rgb(228, 179, 124);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .add-btn:hover {
+      background: rgb(228, 165, 71);
+    }
+
+    .top-btn {
+      border-radius: 3px;
+      border: none;
+      background: rgb(172, 172, 172);
+      color: white;
+      margin: 2px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .current-top-btn:after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      margin: auto;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-color: rgb(201, 165, 131) transparent transparent transparent;
+      border-width: 5px 6px 0 6px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .mod-box {
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .mod-box,
+    .top-btn,
+    .add-btn,
+    .clear-btn {
+      transition: all ease .3s;
+    }
   </style>
 </head>
 
 <body>
   <div id="app">
-    <div class="box">
-      <h4>Person</h4>
-      <div style="color:gray;font-size:12px;">人數限制：<input id="personNum" type="number" min="0" style="width: 30px"></input> 人</div><br>
-      <input id="personInput" type="text"></input>
-      <button onclick="createNewItem('person')">+</button>
-      <button onclick="clearList('who')">Clear All</button>
-      <br>
-      <div id="person-list" class="item-box"></div>
+    <div class="top-tool">
+      <button id="top-btn-1" class="top-btn" onclick="changeCurrentMod('1')">誰在哪裡做什麼</button>
+      <button id="top-btn-2" class="top-btn" onclick="changeCurrentMod('2')">誰被誰做什麼</button>
+      <button id="top-btn-3" class="top-btn" onclick="changeCurrentMod('3')">自訂抽籤</button>
     </div>
-    <div class="box">
-      <h4>Place</h4>
-      <input id="placeInput" type="text"></input>
-      <button onclick="createNewItem('place')">+</button>
-      <button onclick="clearList('where')">Clear All</button>
-      <br>
-      <div id="place-list" class="item-box"></div>
+    <div id="mod1" class="mod-box">
+      <div class="box">
+        <div class="title-box">
+          <h4>Person</h4>
+          <button onclick="clearList('who')" class="clear-btn">Clear All</button>
+        </div>
+        <div class="person-limit">人數限制：<input id="personNum" type="number" min="0"></input> 人</div>
+        <br>
+        <input id="personInput" type="text"></input>
+        <button onclick="createNewItem('person')" class="add-btn">+</button>
+        <br>
+        <div id="person-list" class="item-box"></div>
+      </div>
+      <div class="box">
+        <div class="title-box">
+          <h4>Place</h4>
+          <button onclick="clearList('where')" class="clear-btn">Clear All</button>
+        </div>
+        <input id="placeInput" type="text"></input>
+        <button onclick="createNewItem('place')" class="add-btn">+</button>
+        <br>
+        <div id="place-list" class="item-box"></div>
+      </div>
+      <div class="box">
+        <div class="title-box">
+          <h4>Action</h4>
+          <button onclick="clearList('action')" class="clear-btn">Clear All</button>
+        </div>
+        <input id="actionInput" type="text"></input>
+        <button onclick="createNewItem('action')" class="add-btn">+</button>
+        <br>
+        <div id="action-list" class="item-box"></div>
+      </div>
     </div>
-    <div class="box">
-      <h4>Action</h4>
-      <input id="actionInput" type="text"></input>
-      <button onclick="createNewItem('action')">+</button>
-      <button onclick="clearList('action')">Clear All</button>
-      <br>
-      <div id="action-list" class="item-box"></div>
-    </div>
-    <div id="main-box" onclick="makeSentence()">click</div>
+
+    <div id="mod2" class="mod-box"></div>
+    <div id="mod3" class="mod-box"></div>
+
+    <div id="main-box" onclick="makeSentence()">Click☜(ﾟヮﾟ☜)</div>
   </div>
 
   <script>
@@ -123,6 +231,15 @@
 
     let rowIndex = 0;
     function makeSentence() {
+      let modMap = new Map([
+        ['1', mod1Sentence],
+        ['2', mod2Sentence],
+        ['3', mod3Sentence],
+      ]);
+      let motion = modMap.get(currentModId);
+      motion();
+    }
+    function mod1Sentence() {
       let mainBox = document.getElementById("main-box");
       if (!lists.whoList.length || !lists.whereList.length || !lists.actionList.length) {
         mainBox.innerHTML = 'Incomplete conditions, please add options.';
@@ -133,7 +250,7 @@
       }
       let sentence = '';
       let personNum = document.getElementById('personNum').value;
-      if(!personNum || personNum > lists.whoList.length){
+      if (!personNum || personNum > lists.whoList.length) {
         personNum = lists.whoList.length
       }
       let personCount = getRandom(1, personNum);
@@ -155,8 +272,8 @@
           let action1 = getRandomItem(lists.actionList);
           let newActionList = lists.actionList.filter(t => t !== action1);
           sentence += `邊${action1}邊${getRandomItem(newActionList)}`
-        }else{
-          sentence += getRandomItem(lists.actionList);  
+        } else {
+          sentence += getRandomItem(lists.actionList);
         }
       } else {
         sentence += getRandomItem(lists.actionList);
@@ -165,6 +282,8 @@
       mainBox.innerHTML = sentence + '<br>';
       // mainBox.appendChild(newRow);
     }
+    function mod2Sentence() { }
+    function mod3Sentence() { }
 
     function getListName(type) {
       let ListMap = new Map([
@@ -194,18 +313,19 @@
       newEl.innerText = value;
       let id = listName + lists[`${listName}List`].length;
       newEl.setAttribute("id", id);
-      newEl.onclick = function () {
+      newEl.onclick = function (e) {
+        console.log(this);
         lists[`${listName}List`] = lists[`${listName}List`].filter(t => t !== value);
         this.parentElement.removeChild(this);
       };
       box.appendChild(newEl);
     }
 
-    
+
     let lists = {
-      whoList: ['KAITO', '神代類', 'P助', '工讀生'],
-      whereList: ['草叢裡', '巨人肩上', '召喚峽谷', '國際太空站', '空無一人的世界裡', '天馬家', '紅樹林', '墾丁', '總統大選開票所', '三更半夜裡', '摩天輪包廂裡'],
-      actionList: ['寫程式', '飆高音', '開直播', 'PK', '跳PPAP', '打麻將', '舞龍舞獅', '種菜', '炎上', '召喚青眼白龍', '覆蓋一張陷阱卡', '吃滷味', '吹直笛', '居家隔離', '後空翻', '划龍舟']
+      whoList: ['KAITO', '神代類', 'P助', '工讀生', '阿嬤'],
+      whereList: ['草叢裡', '巨人肩上', '召喚峽谷', '國際太空站', '空無一人的世界裡', '天馬家', '紅樹林', '墾丁', '總統大選開票所', '三更半夜裡', '摩天輪包廂裡', '警車車底', '玫瑰浴池裡', '婦產科病房裡', '世界末日前一天'],
+      actionList: ['寫程式', '飆高音', '開直播', 'PK', '跳PPAP', '打麻將', '舞龍舞獅', '種菜', '炎上', '召喚青眼白龍', '覆蓋一張陷阱卡', '吃滷味', '吹直笛', '居家隔離', '甩雙節棍', '划龍舟', '禱告', '肇事逃逸', '建立信賴關係']
     }
     function createLists() {
       let listArr = ['who', 'where', 'action'];
@@ -225,6 +345,35 @@
       let box = document.getElementById(`${getListName(name)}-list`);
       box.innerHTML = '';
     }
+    function resetTextArea() {
+      let box = document.getElementById('main-box');
+      box.innerText = 'Click☜(ﾟヮﾟ☜)';
+    }
+
+    let currentModId;
+    function changeCurrentMod(id) {
+      if (currentModId) {
+        let oldBtn = document.getElementById(`top-btn-${currentModId}`);
+        oldBtn.style.background = 'rgb(172, 172, 172)';
+        oldBtn.className = 'top-btn';
+        let oldBox = document.getElementById(`mod${currentModId}`);
+        oldBox.style.opacity = '0';
+        setTimeout(() => {
+          oldBox.style.display = 'none';
+        }, 150)
+      }
+      let btn = document.getElementById(`top-btn-${id}`);
+      btn.style.background = "rgb(201, 165, 131)";
+      btn.className = "top-btn current-top-btn";
+      let box = document.getElementById(`mod${id}`);
+      box.style.display = 'block';
+      setTimeout(() => {
+        box.style.opacity = '1';
+      }, 150)
+      currentModId = id;
+      resetTextArea();
+    }
+    changeCurrentMod('1');
   </script>
 </body>
 
