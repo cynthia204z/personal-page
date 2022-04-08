@@ -1,4 +1,5 @@
 let currentModId;
+let hasCreated = [];
 function changeCurrentMod(id) {
     if (currentModId) {
         let oldBtn = document.getElementById(`top-btn-${currentModId}`);
@@ -14,12 +15,15 @@ function changeCurrentMod(id) {
     btn.style.background = "rgb(201, 165, 131)";
     btn.className = "top-btn current-top-btn";
     let box = document.getElementById(`mod${id}`);
-    box.style.display = 'block';
     setTimeout(() => {
+        box.style.display = 'block';
         box.style.opacity = '1';
     }, 150)
     currentModId = id;
     resetTextArea();
+    if(hasCreated.indexOf(currentModId) === -1){
+        createLists();
+    }
 }
 
 
@@ -48,26 +52,32 @@ function createNewItem(type) {
 }
 function appendNewItem(type, value) {
     let box = document.getElementById(`${type}-list`);
-    let newEl = document.createElement('span');
-    newEl.className = 'list-item';
-    newEl.innerText = value;
-    let id = type + listCollection[`mod${currentModId}`][`${type}`].length;
-    newEl.setAttribute("id", id);
-    newEl.onclick = function (e) {
-        console.log(this);
-        listCollection[`mod${currentModId}`][`${type}`] = listCollection[`mod${currentModId}`][`${type}`].filter(t => t !== value);
-        this.parentElement.removeChild(this);
-    };
-    box.appendChild(newEl);
+    if(box){
+        let newEl = document.createElement('span');
+        newEl.className = 'list-item';
+        newEl.innerText = value;
+        let id = type + listCollection[`mod${currentModId}`][`${type}`].length;
+        newEl.setAttribute("id", id);
+        newEl.onclick = function (e) {
+            console.log(this);
+            listCollection[`mod${currentModId}`][`${type}`] = listCollection[`mod${currentModId}`][`${type}`].filter(t => t !== value);
+            this.parentElement.removeChild(this);
+        };
+        box.appendChild(newEl);
+    }
 }
 
+
 function createLists() {
-    let listArr = Object.keys(listCollection[`mod${currentModId}`]);
-    for (let name of listArr) {
-        let list = listCollection[`mod${currentModId}`][`${name}`]
-        if (list.length) {
-            for (let item of list) {
-                appendNewItem(name, item);
+    if(listCollection[`mod${currentModId}`]){
+        hasCreated.push(currentModId);
+        let listArr = Object.keys(listCollection[`mod${currentModId}`]);
+        for (let name of listArr) {
+            let list = listCollection[`mod${currentModId}`][`${name}`]
+            if (list.length) {
+                for (let item of list) {
+                    appendNewItem(name, item);
+                }
             }
         }
     }
@@ -82,3 +92,7 @@ function resetTextArea() {
     let box = document.getElementById('main-box');
     box.innerText = 'Click 🤟';
 }
+
+
+
+changeCurrentMod('1');
