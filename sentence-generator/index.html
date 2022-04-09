@@ -21,7 +21,7 @@
     <div id="mod1" class="mod-box">
       <div class="box">
         <div class="title-box">
-          <h4>Person</h4>
+          <h4>Character</h4>
           <button onclick="clearList('person')" class="clear-btn">Clear All</button>
         </div>
         <div class="person-limit">人數限制：<input id="personNum" type="number" min="0"></input> 人</div>
@@ -57,12 +57,24 @@
     <div id="mod3" class="mod-box">
       <div class="box">
         <div class="title-box">
-          <h4 style="width:50%">Top</h4>
-          <h4 style="width:50%">Bottom</h4>
+          <h4>Sentence Type</h4>
+          <div></div>
         </div>
-        <div style="display:flex;">
-          <input style="width:50%" id="topPerson" type="text" value="類"></input>
-          <input style="width:50%" id="bottomPerson" type="text" value="KAITO"></input>
+      </div>
+      <div class="box flex">
+        <div style="width:50%">
+          <div class="title-box">
+            <h4>Top</h4>
+          </div>
+          <label for="topPerson">名字：</label>
+          <input style="width:100px" id="topPerson" type="text" value="類"></input>
+        </div>
+        <div style="width:50%">
+          <div class="title-box">
+            <h4>Bottom</h4>
+          </div>
+          <label for="bottomPerson">名字：</label>
+          <input style="width:100px" id="bottomPerson" type="text" value="KAITO"></input>
         </div>
       </div>
       <!-- <div class="box">
@@ -88,7 +100,8 @@
     </div>
     <div id="modself" class="mod-box"></div>
   </div>
-
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="./common.js"></script>
   <script type="text/javascript" src="./modType/mod1.js"></script>
   <script type="text/javascript" src="./modType/mod2.js"></script>
