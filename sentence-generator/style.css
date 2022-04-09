@@ -4,6 +4,7 @@
     width: 350px;
     height: 90%;
     overflow: hidden;
+    -webkit-tap-highlight-color:transparent;
 }
 
 #main-box {
@@ -99,7 +100,7 @@
     justify-content: space-between;
 }
 
-.person-limit {
+.person-limit, label {
     color: gray;
     font-size: 12px;
 }
@@ -234,4 +235,8 @@ input:focus-visible {
 .top-tool {
     height: 27px;
     width: 100%;
+}
+
+.flex{
+    display: flex;
 }
