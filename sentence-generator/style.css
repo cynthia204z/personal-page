@@ -4,7 +4,10 @@
     width: 350px;
     height: 90%;
     overflow: hidden;
-    -webkit-tap-highlight-color:transparent;
+    font-family: monospace;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 12px;
+    color: rgb(121, 108, 98);
 }
 
 #main-box {
@@ -15,11 +18,9 @@
     background: aliceblue;
     padding: 10px;
     line-height: 25px;
-    font-family: 'Noto Sans TC', '微軟正黑體', Helvetica Neue, sans-serif;
     color: gray;
     cursor: pointer;
     text-align: center;
-    font-size: 12px;
     transition: 0.5s;
     position: relative;
 }
@@ -52,10 +53,6 @@
     border-radius: 10px;
 }
 
-.box span {
-    font-size: 12px;
-}
-
 .box h4 {
     line-height: 30px;
     margin: 0;
@@ -70,14 +67,12 @@
 
 .list-item {
     position: relative;
-    font-size: 12px;
     border-radius: 5px;
     border: solid 1px rgb(255, 232, 157);
     background: rgb(255, 252, 244);
     padding: 3px 15px;
     margin: 2px;
     line-height: 15px;
-    color: rgb(121, 108, 98);
     cursor: pointer;
 }
 
@@ -98,11 +93,12 @@
 .title-box {
     display: flex;
     justify-content: space-between;
+    font-size: 15px;
 }
 
-.person-limit, label {
+.person-limit,
+label {
     color: gray;
-    font-size: 12px;
 }
 
 .person-limit input {
@@ -110,7 +106,6 @@
 }
 
 .clear-btn {
-    font-size: 12px;
     background: none;
     color: gray;
     border: none;
@@ -228,7 +223,8 @@ input:focus-visible {
 .mod-box,
 .top-btn,
 .add-btn,
-.clear-btn {
+.clear-btn,
+.sentence-type-btn {
     transition: all ease .3s;
 }
 
@@ -237,6 +233,51 @@ input:focus-visible {
     width: 100%;
 }
 
-.flex{
+.flex {
     display: flex;
+}
+
+.btn {
+    border-radius: 5px;
+    border: 1px solid;
+    text-align: center;
+    margin: 0 3px;
+    cursor: pointer;
+    line-height: 18px;
+}
+
+.sentence-type-btn {
+    border-color: rgb(228, 179, 124);
+    color: rgb(228, 179, 124);
+    width: 50px;
+}
+
+.sentence-type-btn:hover:not(.current){
+    background: rgb(255, 250, 237);
+}
+
+.sentence-type-btn.current {
+    background: rgb(228, 179, 124);
+    color: #fff;
+}
+
+.gender-btn{
+    border-color: rgb(228, 179, 124);
+    color: rgb(228, 179, 124);
+    padding: 0 3px;
+}
+.gender-btn:hover:not(.current){
+    background: rgb(255, 250, 237);
+}
+
+.gender-btn.current {
+    background: rgb(228, 179, 124);
+    color: #fff;
+}
+
+.column{
+    padding: 5px 0;
+}
+.column label {
+    margin-right: 10px;
 }
