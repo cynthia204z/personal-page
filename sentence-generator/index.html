@@ -58,7 +58,13 @@
       <div class="box">
         <div class="title-box">
           <h4>Sentence Type</h4>
-          <div></div>
+          <span style="font-size:12px;line-height: 30px;color:rgb(186, 186, 186)">大概只能篩出60-70%</span>
+        </div>
+        <div class="flex">
+          <div class="btn sentence-type-btn" id="sentence-btn-1" onclick="changeCurrentSentenceType('1')">正常</div>
+          <div class="btn sentence-type-btn" id="sentence-btn-2" onclick="changeCurrentSentenceType('2')">R18</div>
+          <div class="btn sentence-type-btn" id="sentence-btn-3" onclick="changeCurrentSentenceType('3')">特殊</div>
+          <div class="btn sentence-type-btn" id="sentence-btn-99" onclick="changeCurrentSentenceType('99')">全部</div>
         </div>
       </div>
       <div class="box flex">
@@ -66,15 +72,35 @@
           <div class="title-box">
             <h4>Top</h4>
           </div>
-          <label for="topPerson">名字：</label>
-          <input style="width:100px" id="topPerson" type="text" value="類"></input>
+          <div class="flex column">
+            <label for="topPerson">名字 </label>
+            <input style="width:80px" id="topPerson" type="text" value="類"></input><br>
+          </div>
+          <div class="flex column">
+            <label for="topGender">性別 </label>
+            <div class="flex" id="topGender">
+              <div class="btn gender-btn" id="gender-btn-top-M" onclick="changeCurrentGender('top', 'M')">男</div>
+              <div class="btn gender-btn" id="gender-btn-top-F" onclick="changeCurrentGender('top', 'F')">女</div>
+              <div class="btn gender-btn" id="gender-btn-top-A" onclick="changeCurrentGender('top', 'A')">不限</div>
+            </div>
+          </div>
         </div>
         <div style="width:50%">
           <div class="title-box">
             <h4>Bottom</h4>
           </div>
-          <label for="bottomPerson">名字：</label>
-          <input style="width:100px" id="bottomPerson" type="text" value="KAITO"></input>
+          <div class="flex column">
+            <label for="bottomPerson">名字 </label>
+            <input style="width:80px" id="bottomPerson" type="text" value="KAITO"></input>
+          </div>
+          <div class="flex column">
+            <label for="topGender">性別 </label>
+            <div class="flex" id="topGender">
+              <div class="btn gender-btn" id="gender-btn-bottom-M" onclick="changeCurrentGender('bottom', 'M')">男</div>
+              <div class="btn gender-btn" id="gender-btn-bottom-F" onclick="changeCurrentGender('bottom', 'F')">女</div>
+              <div class="btn gender-btn" id="gender-btn-bottom-A" onclick="changeCurrentGender('bottom', 'A')">不限</div>
+            </div>
+          </div>
         </div>
       </div>
       <!-- <div class="box">
