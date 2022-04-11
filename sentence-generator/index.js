@@ -21,7 +21,7 @@ function changeCurrentMod(id) {
     }, 150)
     currentModId = id;
     resetTextArea();
-    if(hasCreated.indexOf(currentModId) === -1){
+    if (hasCreated.indexOf(currentModId) === -1) {
         createLists();
     }
 }
@@ -52,7 +52,7 @@ function createNewItem(type) {
 }
 function appendNewItem(type, value) {
     let box = document.getElementById(`${type}-list`);
-    if(box){
+    if (box) {
         let newEl = document.createElement('span');
         newEl.className = 'list-item';
         newEl.innerText = value;
@@ -69,7 +69,7 @@ function appendNewItem(type, value) {
 
 
 function createLists() {
-    if(listCollection[`mod${currentModId}`]){
+    if (listCollection[`mod${currentModId}`]) {
         hasCreated.push(currentModId);
         let listArr = Object.keys(listCollection[`mod${currentModId}`]);
         for (let name of listArr) {
@@ -93,6 +93,20 @@ function resetTextArea() {
     box.innerText = 'Click 🤟';
 }
 
-
-
 changeCurrentMod('1');
+
+let currentTheme;
+function changeTheme(theme) {
+    if (currentTheme) {
+        let oldBtn = document.getElementById(`theme-btn-${currentTheme}`);
+        oldBtn.className = `theme-btn ${currentTheme}`
+    }
+    let newBtn = document.getElementById(`theme-btn-${theme}`)
+    newBtn.className = `theme-btn ${theme} current`
+    currentTheme = theme
+    resetTheme()
+}
+changeTheme('light')
+function resetTheme() {
+    document.body.className = currentTheme
+}
