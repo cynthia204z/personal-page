@@ -71,9 +71,14 @@ function mod3Sentence() {
     let organObj = getRandomItem(organList);
     let actionList = filterAction(firstPerson, actionConfig, organObj);
     console.log('actionList', actionList)
+    if(!actionList.length){
+        mod3Sentence()
+        return
+    }
     let actionObj = getRandomItem(actionList);
     let newRow = document.createElement('span');
-    sentence = adjObj.adjective + firstPerson.name + actionObj.adposition + lastPerson.name + '的' +  organObj.organ + actionObj.action
+    let adposition2 = actionObj.adposition === '被' ? '' : '的'
+    sentence = adjObj.adjective + firstPerson.name + actionObj.adposition + lastPerson.name + adposition2 +  organObj.organ + actionObj.action
     newRow.innerHTML = sentence;
     mainBox.appendChild(newRow);
 }
@@ -145,6 +150,13 @@ function getOrganFilterConfigList(data, consult) {
     }
 }
 
+let sentenceInfoMap = new Map([
+    ['1', '相對正常的句子'],
+    ['2', '注意，什麼性癖都有'],
+    ['3', '可能會出現奇怪的東西？'],
+    ['99', '我全都要'],
+]);
+
 function changeCurrentSentenceType(index) {
     if(currentSentenceType){
         let oldBtn = document.getElementById(`sentence-btn-${currentSentenceType}`);
@@ -152,6 +164,10 @@ function changeCurrentSentenceType(index) {
     }
     let newBtn = document.getElementById(`sentence-btn-${index}`);
     newBtn.className = 'btn sentence-type-btn current';
+    
+    let sentenceInfo = document.getElementById('sentence-type-info');
+    sentenceInfo.innerText = sentenceInfoMap.get(index);
+    
     currentSentenceType = index;
 }
 changeCurrentSentenceType('1');
@@ -196,4 +212,3 @@ jqAjaxRead({
     actionConfig = res
     console.log('action', res)
 })
-
