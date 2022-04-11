@@ -24,7 +24,7 @@
           <h4>Character</h4>
           <button onclick="clearList('person')" class="clear-btn">Clear All</button>
         </div>
-        <div class="person-limit">人數限制：<input id="personNum" type="number" min="0"></input> 人</div>
+        <div class="person-limit">人數上限：<input id="personNum" type="number" min="0"></input> 人</div>
         <br>
         <input id="personInput" type="text"></input>
         <button onclick="createNewItem('person')" class="add-btn">+</button>
@@ -58,12 +58,12 @@
       <div class="box">
         <div class="title-box">
           <h4>Sentence Type</h4>
-          <span style="font-size:12px;line-height: 30px;color:rgb(186, 186, 186)">大概只能篩出60-70%</span>
+          <span id="sentence-type-info">大概只能篩出60-70%</span>
         </div>
         <div class="flex">
           <div class="btn sentence-type-btn" id="sentence-btn-1" onclick="changeCurrentSentenceType('1')">正常</div>
           <div class="btn sentence-type-btn" id="sentence-btn-2" onclick="changeCurrentSentenceType('2')">R18</div>
-          <div class="btn sentence-type-btn" id="sentence-btn-3" onclick="changeCurrentSentenceType('3')">特殊</div>
+          <div class="btn sentence-type-btn" id="sentence-btn-3" onclick="changeCurrentSentenceType('3')">嗯？</div>
           <div class="btn sentence-type-btn" id="sentence-btn-99" onclick="changeCurrentSentenceType('99')">全部</div>
         </div>
       </div>
@@ -103,28 +103,13 @@
           </div>
         </div>
       </div>
-      <!-- <div class="box">
-        <div class="title-box">
-          <h4>Adjective</h4>
-          <button onclick="clearList('adjective')" class="clear-btn">Clear All</button>
-        </div>
-        <input id="adjectiveInput" type="text"></input>
-        <button onclick="createNewItem('adjective')" class="add-btn">+</button>
-        <br>
-        <div id="adjective-list" class="item-box"></div>
-      </div>
-      <div class="box">
-        <div class="title-box">
-          <h4>Action</h4>
-          <button onclick="clearList('actionCP')" class="clear-btn">Clear All</button>
-        </div>
-        <input id="actionCPInput" type="text"></input>
-        <button onclick="createNewItem('actionCP')" class="add-btn">+</button>
-        <br>
-        <div id="actionCP-list" class="item-box"></div>
-      </div> -->
     </div>
     <div id="modself" class="mod-box"></div>
+    <div style="display:flex; justify-content: flex-end;">
+      <div class="theme-btn dark" id="theme-btn-dark" onclick="changeTheme('dark')">Dark</div>
+      <div class="theme-btn light" id="theme-btn-light" onclick="changeTheme('light')">Light</div>
+      <div class="theme-btn rainbow" id="theme-btn-rainbow" onclick="changeTheme('rainbow')">Rainbow</div>
+    </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
