@@ -1,13 +1,37 @@
-#app {
+html,
+body {
+    height: 100%;
     padding: 0;
+    margin: 0;
+}
+body{
+    overflow: auto;
+}
+
+body.dark {
+    background: #333;
+}
+
+body.light {
+    background: #fff;
+}
+
+body.rainbow {
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, .2), rgba(255, 255, 255, .8)),
+        linear-gradient(to bottom, #ff0000 0%, #ffff00 10%, #00ff00 30%, #00ffff 50%, #0000ff 70%, #ff00ff 90%, #ff0000 100%);
+    ;
+}
+
+
+#app {
+    padding: 10px;
     margin: auto;
-    width: 350px;
-    height: 90%;
-    overflow: hidden;
     font-family: monospace;
     -webkit-tap-highlight-color: transparent;
     font-size: 12px;
     color: rgb(121, 108, 98);
+    display: flex;
+    flex-direction: column;
 }
 
 #main-box {
@@ -23,6 +47,8 @@
     text-align: center;
     transition: 0.5s;
     position: relative;
+    width: calc(100% - 20px);
+    overflow: hidden;
 }
 
 #main-box::before {
@@ -46,17 +72,35 @@
 }
 
 .box {
-    /* width: 350px; */
     padding: 10px 15px;
     margin-top: 10px;
-    background: rgb(245, 242, 223);
     border-radius: 10px;
+}
+
+.dark .box {
+    background: rgb(90 90 90);
+}
+
+.light .box {
+    background: rgb(245, 242, 223);
+}
+
+.rainbow .box {
+    background: rgba(255, 255, 255, .6);
 }
 
 .box h4 {
     line-height: 30px;
     margin: 0;
+}
+
+.dark .box h4,
+.light .box h4 {
     color: rgb(225, 188, 65);
+}
+
+.rainbow .box h4 {
+    color: #666;
 }
 
 .item-box {
@@ -69,11 +113,26 @@
     position: relative;
     border-radius: 5px;
     border: solid 1px rgb(255, 232, 157);
-    background: rgb(255, 252, 244);
     padding: 3px 15px;
     margin: 2px;
     line-height: 15px;
     cursor: pointer;
+}
+
+.light .list-item {
+    background: rgb(255, 252, 244);
+    color: rgb(121, 108, 98);
+}
+
+.dark .list-item {
+    background: rgb(121, 108, 98);
+    color: rgb(255, 252, 244);
+}
+
+.rainbow .list-item {
+    background: rgba(255, 255, 255, .7);
+    color: rgb(121, 108, 98);
+    border-color: gray;
 }
 
 .list-item:hover::after {
@@ -96,10 +155,22 @@
     font-size: 15px;
 }
 
-.person-limit,
-label {
+.person-limit {
+    font-size: 12px;
+}
+
+.dark .person-limit,
+.dark label {
+    color: #ddd;
+}
+
+.light .person-limit,
+.rainbow .person-limit,
+.light label,
+.rainbow label {
     color: gray;
 }
+
 
 .person-limit input {
     width: 30px;
@@ -107,8 +178,9 @@ label {
 
 .clear-btn {
     background: none;
-    color: gray;
+    color: #9c9c9c;
     border: none;
+    font-size: 12px;
     cursor: pointer;
 }
 
@@ -187,7 +259,6 @@ input:focus-visible {
     border: none;
     background: rgb(172, 172, 172);
     color: white;
-    margin: 2px;
     cursor: pointer;
     position: relative;
     line-height: 20px;
@@ -215,7 +286,6 @@ input:focus-visible {
 .mod-box {
     opacity: 0;
     width: 100%;
-    height: 100%;
     overflow: hidden;
     display: none;
 }
@@ -224,7 +294,11 @@ input:focus-visible {
 .top-btn,
 .add-btn,
 .clear-btn,
-.sentence-type-btn {
+.sentence-type-btn,
+.theme-btn,
+.dark,
+.light,
+.rainbow {
     transition: all ease .3s;
 }
 
@@ -247,37 +321,120 @@ input:focus-visible {
 }
 
 .sentence-type-btn {
-    border-color: rgb(228, 179, 124);
-    color: rgb(228, 179, 124);
     width: 50px;
 }
 
-.sentence-type-btn:hover:not(.current){
-    background: rgb(255, 250, 237);
-}
-
-.sentence-type-btn.current {
-    background: rgb(228, 179, 124);
-    color: #fff;
-}
-
-.gender-btn{
+.light .sentence-type-btn,
+.dark .sentence-type-btn{
     border-color: rgb(228, 179, 124);
     color: rgb(228, 179, 124);
-    padding: 0 3px;
 }
-.gender-btn:hover:not(.current){
+.rainbow .sentence-type-btn{
+    border-color: rgb(167 151 132);
+    color: rgb(167 151 132);
+}
+
+.sentence-type-btn:hover:not(.current) {
     background: rgb(255, 250, 237);
 }
 
-.gender-btn.current {
+.light .sentence-type-btn.current,
+.dark .sentence-type-btn.current {
     background: rgb(228, 179, 124);
     color: #fff;
 }
 
-.column{
+.rainbow .sentence-type-btn.current{
+    background: rgb(167 151 132);
+    color: #fff;
+}
+
+.gender-btn {
+    padding: 0 3px;
+}
+.gender-btn:hover:not(.current) {
+    background: rgb(255, 250, 237);
+}
+
+.light .gender-btn,
+.dark .gender-btn {
+    border-color: rgb(228, 179, 124);
+    color: rgb(228, 179, 124);
+}
+
+.rainbow .gender-btn{
+    border-color: rgb(167 151 132);
+    color: rgb(167 151 132);
+}
+
+.light .gender-btn.current,
+.dark .gender-btn.current {
+    background: rgb(228, 179, 124);
+    color: #fff;
+}
+
+.rainbow .gender-btn.current{
+    background: rgb(167 151 132);
+    color: #fff;
+}
+
+.column {
     padding: 5px 0;
 }
+
 .column label {
     margin-right: 10px;
+}
+
+.theme-btn {
+    cursor: pointer;
+    border-radius: 5px;
+    line-height: 20px;
+    width: 50px;
+    text-align: center;
+    font-size: 12px;
+    margin: 5px;
+    background: rgb(190, 190, 190);
+    color: rgb(255, 255, 255);
+}
+
+.theme-btn.dark.current {
+    background: rgb(90 90 90);
+    color: rgb(245, 242, 223);
+}
+
+.theme-btn.light.current {
+    background: rgb(245, 242, 223);
+    color: rgb(121, 108, 98);
+}
+
+.theme-btn.rainbow.current {
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, .2), rgba(255, 255, 255, .8)),
+        linear-gradient(to left, #ff0000 0%, #ffff00 20%, #00ff00 35%, #00ffff 50%, #0000ff 65%, #ff00ff 80%, #ff0000 100%);
+    color: #fff;
+}
+
+#sentence-type-info{
+    font-size:12px;
+    line-height: 30px;
+    color:rgb(186, 186, 186);
+}
+
+@media (max-width: 475px){
+    #app{
+        width: calc(100% - 20px);
+        max-width: 375px;
+    }
+}
+
+@media (min-width: 476px) and (max-width: 700px){
+    #app{
+        width: calc(100% - 50px);
+    }
+}
+
+@media (min-width: 701px) {
+    #app{
+        width: 650px;
+    }
 }
